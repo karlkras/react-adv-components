@@ -2,11 +2,11 @@ import { useTimersContext } from "../store/timers-context.tsx";
 import Timer from "./Timer.tsx";
 
 const Timers = () => {
-  const timerCtx = useTimersContext();
+  const { timers } = useTimersContext();
 
   return (
     <ul>
-      {timerCtx.timers.map(timer =>
+      {timers.map(timer =>
         (<li key={Math.random().toString()}><Timer { ...timer } /></li>))}
     </ul>);
 }

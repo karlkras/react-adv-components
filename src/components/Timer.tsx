@@ -17,7 +17,12 @@ const Timer = ({name, duration}: TimerProps) => {
     let interval: number;
     if(isRunning) {
       interval = window.setInterval(() => {
-        setRemainingTime((prevTime) => prevTime - timeInterval)
+        setRemainingTime((prevTime) => {
+          if (prevTime <= 0) {
+            return prevTime;
+          }
+          return prevTime - timeInterval;
+        });
       }, timeInterval);
       intervalRef.current = interval;
     } else if (intervalRef.current) {

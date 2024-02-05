@@ -7,7 +7,7 @@ const Timers = () => {
   return (
     <ul>
       {timers.map(timer =>
-        (<li key={Math.random().toString()}><Timer { ...timer } /></li>))}
+        (<li key={timer.id}><Timer { ...timer } /></li>))}
     </ul>);
 }
 

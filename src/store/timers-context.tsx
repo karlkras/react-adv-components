@@ -4,6 +4,7 @@ import { createContext, ReactNode, useContext, useReducer } from "react";
 export type Timer = {
   name: string;
   duration: number;
+  id: string;
 }
 
 type TimersState = {
@@ -61,7 +62,8 @@ const timersReducer = (state: TimersState, action: Action): TimersState => {
           ...state.timers,
           {
             name: action.payload.name,
-            duration: action.payload.duration
+            duration: action.payload.duration,
+            id: Math.random().toString()
           }
         ]}
     case "START_TIMERS":
